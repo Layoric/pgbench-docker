@@ -1,4 +1,4 @@
-version: '3.0'
+version: '3.9'
 services:
   postgres:
     image: $DOCKER_IMAGE
@@ -64,9 +64,8 @@ services:
       "pgbench",
       "-c", $PGBENCH_CLIENTS,
       "-s", $PGBENCH_SCALE,
-      "-R", $PGBENCH_RATE,
       "-j", $PGBENCH_THREADS,
-      "-T", $PGBENCH_DURATION,
+      "-t", $PGBENCH_TRANSACTIONS,
       "-b", $PGBENCH_SCRIPT,
       "-P", "1", # show progress every 1 sec
       "--report-latencies",
